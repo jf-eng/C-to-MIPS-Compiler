@@ -1,0 +1,9 @@
+**.log
+.vagrant
+bin/
+.vscode/
+results/
+src/lexer.yy.cpp
+src/parser.output
+src/parser.tab.cpp
+src/parser.tab.hpp
