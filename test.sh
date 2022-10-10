@@ -140,8 +140,13 @@ else
     else
         echo "========================================"
         echo "$1 is an invalid path!"
-        exit 1 
+        exit 1
     fi
 fi
 
 echo "Passed ${PASSED}/${CHECKED} test cases"
+if [[ $PASSED -eq $CHECKED ]]; then
+    exit 0
+else
+    exit 1
+fi
