@@ -1,0 +1,26 @@
+name: CI
+
+# Controls when the workflow will run
+on:
+  push:
+    branches: [ "master", "develop" ]
+  pull_request:
+    branches: [ "master" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Deps
+        run: |
+            sudo apt-get update
+            sudo apt-get -y install g++ gdb make dos2unix git
+            sudo apt-get -y install bison flex
+            sudo apt-get -y install gcc-mips-linux-gnu g++-mips-linux-gnu gdb-multiarch qemu qemu-user
+      - name: Run test
+        run: ./test.sh
